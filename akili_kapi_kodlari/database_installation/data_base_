@@ -1,0 +1,56 @@
+ # connection : sudo mysql -u root -p
+ # password : Fokouong01
+
+sqllite information : https://www.howtogeek.com/704243/how-to-use-db-browser-for-sqlite-on-linux/
+
+MARİADB AND PHP AND LAMP SERVER RASPBERY Pİ :https://blog.ohidur.com/posts/raspberry-pi/setting-up-lamp-server-installing-wordpress/
+
+maria db : 
+acceder a la base de donnee : ,
+
+coller dans le tererminal : sudo mysql -u root -p 
+entrer le mode passe puis pour voir toutes les bases de donne taper la commande " SHOW DATABASES; "
+POUR ACCEDER A LA BASES DE DONNER SOUAİTER TAPER : " use suivi du nom de la bases de donne souhaité "
+pour afficher les tables d'une bases de donnée on utilise " SHOW TABLES; "
+
+ajouter une colone dans ue base de donnee
+ALTER TABLE nom de la table(apuis sur entré)
+ADD nom de la colone et les proprietes 
+AFTER la position ou tu vas inserer ta colone
+
+''' le code de ma base de donne ogrenci_bilgi
+
+MariaDB [rfidcardsdb]> CREATE TABLE ogreci_kayit (
+   // -> kayit_sira int NOT NULL AUTO_INCREMENT,
+    -> ismin varchar(20) NOT NULL,
+    -> soyismin varchar(20) NOT NULL,
+    -> sinif int NOT NULL,
+    -> ogrenci_no varchar(20) NOT NULL,
+    -> kart_no varchar(20) NOT NULL,
+    -> date_stamp timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    -> UNIQUE KEY (kart_no),
+    -> PRIMARY KEY (kart_no));
+    
+    MariaDB [rfidcardsdb]> CREATE TABLE ogreci_girisi (
+   // -> giris_sira int NOT NULL AUTO_INCREMENT,
+    -> ismin varchar(20) NOT NULL,
+    -> soyismin varchar(20) NOT NULL,
+    -> sinif int NOT NULL,
+    -> ogrenci_no varchar(20) NOT NULL,
+    -> kart_no varchar(20) NOT NULL,
+    -> date_stamp timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    -> UNIQUE KEY (ogrenci_no),
+    -> PRIMARY KEY (kart_no));
+    
+    MariaDB [rfidcardsdb]> CREATE TABLE ogreci_cikis(
+   // -> cikis_sira int NOT NULL AUTO_INCREMENT,
+    -> ismin varchar(20) NOT NULL,
+    -> soyismin varchar(20) NOT NULL,
+    -> sinif int NOT NULL,
+    -> ogrenci_no varchar(20) NOT NULL,
+    -> kart_no varchar(20) NOT NULL,
+    -> date_stamp timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    -> UNIQUE KEY (kart_no)),
+    -> PRIMARY KEY (kayit_sira));
+    
+'''
